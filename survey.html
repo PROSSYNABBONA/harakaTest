@@ -53,116 +53,158 @@
 </head>
 <body>
   <div class="container">
-    <h1>Site Survey & Upgrades</h1>
+    <h1 class="text-center mb-4">Site Survey & Upgrades</h1>
 
     <!-- Survey Information Section -->
     <div class="section">
       <h2>Survey Information</h2>
-      <div class="form-group">
-        <label for="customer-site-location">Customer/Site Location:</label>
-        <input type="text" id="customer-site-location" placeholder="Enter location">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="customer-site-location">Customer/Site Location:</label>
+            <input type="text" id="customer-site-location" class="form-control" placeholder="Enter location">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="existing-equipment">Existing Equipment & Condition:</label>
+            <select id="existing-equipment" class="form-control">
+              <option value="">Select Condition</option>
+              <option value="good">Good</option>
+              <option value="needs-upgrade">Needs Upgrade</option>
+              <option value="non-functional">Non-Functional</option>
+            </select>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="existing-equipment">Existing Equipment & Condition:</label>
-        <select id="existing-equipment">
-          <option value="">Select Condition</option>
-          <option value="good">Good</option>
-          <option value="needs-upgrade">Needs Upgrade</option>
-          <option value="non-functional">Non-Functional</option>
-        </select>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="current-site-setup">Upload Current Site Setup:</label>
+            <input type="file" id="current-site-setup" class="form-control">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="signal-strength">Signal Strength Test:</label>
+            <input type="text" id="signal-strength" class="form-control" placeholder="Auto-detect / Manual entry">
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="current-site-setup">Upload Current Site Setup:</label>
-        <input type="file" id="current-site-setup">
-      </div>
-      <div class="form-group">
-        <label for="signal-strength">Signal Strength Test:</label>
-        <input type="text" id="signal-strength" placeholder="Auto-detect / Manual entry">
-      </div>
-      <div class="form-group">
-        <label for="recommended-upgrade">Recommended Upgrade:</label>
-        <select id="recommended-upgrade">
-          <option value="">Select Upgrade</option>
-          <option value="5g-odu">5G ODU</option>
-          <option value="cambium-microwave">Cambium Microwave</option>
-          <option value="fiber">Fiber</option>
-          <option value="apn-odu">APN ODU</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="site-suitability-report">Upload Site Suitability Report Screenshot:</label>
-        <input type="file" id="site-suitability-report">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="recommended-upgrade">Recommended Upgrade:</label>
+            <select id="recommended-upgrade" class="form-control">
+              <option value="">Select Upgrade</option>
+              <option value="5g-odu">5G ODU</option>
+              <option value="cambium-microwave">Cambium Microwave</option>
+              <option value="fiber">Fiber</option>
+              <option value="apn-odu">APN ODU</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="site-suitability-report">Upload Site Suitability Report Screenshot:</label>
+            <input type="file" id="site-suitability-report" class="form-control">
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Network & Environmental Conditions Section -->
     <div class="section">
       <h2>Network & Environmental Conditions</h2>
-      <div class="form-group">
-        <label for="line-of-sight">Line of Sight Check:</label>
-        <select id="line-of-sight">
-          <option value="">Select Status</option>
-          <option value="clear">Clear</option>
-          <option value="partial-obstruction">Partial Obstruction</option>
-          <option value="full-obstruction">Full Obstruction</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="power-availability">Power Availability:</label>
-        <select id="power-availability">
-          <option value="">Select Status</option>
-          <option value="stable">Stable</option>
-          <option value="frequent-outages">Frequent Outages</option>
-          <option value="no-power">No Power</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="cable-routing">Cable Routing Feasibility:</label>
-        <select id="cable-routing">
-          <option value="">Select Feasibility</option>
-          <option value="easy">Easy</option>
-          <option value="moderate">Moderate</option>
-          <option value="difficult">Difficult</option>
-        </select>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="line-of-sight">Line of Sight Check:</label>
+            <select id="line-of-sight" class="form-control">
+              <option value="">Select Status</option>
+              <option value="clear">Clear</option>
+              <option value="partial-obstruction">Partial Obstruction</option>
+              <option value="full-obstruction">Full Obstruction</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="power-availability">Power Availability:</label>
+            <select id="power-availability" class="form-control">
+              <option value="">Select Status</option>
+              <option value="stable">Stable</option>
+              <option value="frequent-outages">Frequent Outages</option>
+              <option value="no-power">No Power</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="cable-routing">Cable Routing Feasibility:</label>
+            <select id="cable-routing" class="form-control">
+              <option value="">Select Feasibility</option>
+              <option value="easy">Easy</option>
+              <option value="moderate">Moderate</option>
+              <option value="difficult">Difficult</option>
+            </select>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Survey Report for Management Section -->
     <div class="section">
       <h2>Survey Report for Management</h2>
-      <div class="form-group">
-        <label for="upgrade-recommendation">Upgrade Recommendation:</label>
-        <select id="upgrade-recommendation">
-          <option value="">Select Recommendation</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="upgrade-recommendation">Upgrade Recommendation:</label>
+            <select id="upgrade-recommendation" class="form-control">
+              <option value="">Select Recommendation</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="material-labor-cost">Estimated Material & Labor Cost:</label>
+            <input type="number" id="material-labor-cost" class="form-control" placeholder="Enter cost">
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="material-labor-cost">Estimated Material & Labor Cost:</label>
-        <input type="number" id="material-labor-cost" placeholder="Enter cost">
-      </div>
-      <div class="form-group">
-        <label for="project-approval">Project Approval Status:</label>
-        <select id="project-approval">
-          <option value="">Select Status</option>
-          <option value="pending">Pending</option>
-          <option value="approved">Approved</option>
-          <option value="rejected">Rejected</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="supervisor-comments">Supervisor Comments:</label>
-        <textarea id="supervisor-comments" rows="4" placeholder="Enter comments"></textarea>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="project-approval">Project Approval Status:</label>
+            <select id="project-approval" class="form-control">
+              <option value="">Select Status</option>
+              <option value="pending">Pending</option>
+              <option value="approved">Approved</option>
+              <option value="rejected">Rejected</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="supervisor-comments">Supervisor Comments:</label>
+            <textarea id="supervisor-comments" class="form-control" rows="4" placeholder="Enter comments"></textarea>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Final Report Section -->
     <div class="section">
       <h2>Final Report</h2>
-      <div class="form-group">
-        <label for="final-report">Upload Final Report:</label>
-        <input type="file" id="final-report">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="final-report">Upload Final Report:</label>
+            <input type="file" id="final-report" class="form-control">
+          </div>
+        </div>
       </div>
     </div>
 

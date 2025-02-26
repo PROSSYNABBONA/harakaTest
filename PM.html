@@ -54,318 +54,479 @@
       border-radius: 4px;
       background-color: #f9f9f9;
       margin-top: 10px;
+      width: 100%;
+      height: 150px;
+    }
+    @media (max-width: 768px) {
+      .signature-canvas {
+        height: 100px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Preventive Maintenance (PM)</h1>
+    <h1 class="text-center mb-4">Preventive Maintenance (PM)</h1>
 
     <!-- Customer Information Section -->
     <div class="section">
       <h2>Customer Information</h2>
-      <div class="form-group">
-        <label for="customer-name">Customer Name:</label>
-        <select id="customer-name">
-          <option value="">Select Customer</option>
-          <option value="customer1">Customer 1</option>
-          <option value="customer2">Customer 2</option>
-        </select>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="customer-name">Customer Name:</label>
+            <select id="customer-name" class="form-control">
+              <option value="">Select Customer</option>
+              <option value="customer1">Customer 1</option>
+              <option value="customer2">Customer 2</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="customer-contact">Customer Contact:</label>
+            <input type="text" id="customer-contact" class="form-control" placeholder="Enter contact">
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="customer-contact">Customer Contact:</label>
-        <input type="text" id="customer-contact" placeholder="Enter contact">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="customer-location">Customer Location:</label>
+            <input type="text" id="customer-location" class="form-control" placeholder="Auto-captured" disabled>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="site-id">Site ID:</label>
+            <input type="text" id="site-id" class="form-control" placeholder="Auto-fetch from database">
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="customer-location">Customer Location:</label>
-        <input type="text" id="customer-location" placeholder="Auto-captured" disabled>
-      </div>
-      <div class="form-group">
-        <label for="site-id">Site ID:</label>
-        <input type="text" id="site-id" placeholder="Auto-fetch from database">
-      </div>
-      <div class="form-group">
-        <label for="mocn">MOCN:</label>
-        <select id="mocn">
-          <option value="">Select</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="mocn">MOCN:</label>
+            <select id="mocn" class="form-control">
+              <option value="">Select</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Site & Equipment Details Section -->
     <div class="section">
       <h2>Site & Equipment Details</h2>
-      <div class="form-group">
-        <label for="equipment-type">Current Equipment Type:</label>
-        <select id="equipment-type">
-          <option value="">Select Type</option>
-          <option value="apn-odu">APN ODU</option>
-          <option value="5g-odu">5G ODU</option>
-          <option value="cambium">Cambium Microwave</option>
-          <option value="fiber">Fiber</option>
-        </select>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="equipment-type">Current Equipment Type:</label>
+            <select id="equipment-type" class="form-control">
+              <option value="">Select Type</option>
+              <option value="apn-odu">APN ODU</option>
+              <option value="5g-odu">5G ODU</option>
+              <option value="cambium">Cambium Microwave</option>
+              <option value="fiber">Fiber</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="serial-number">Serial Number:</label>
+            <input type="text" id="serial-number" class="form-control" placeholder="Auto-fill / Manual">
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="serial-number">Serial Number:</label>
-        <input type="text" id="serial-number" placeholder="Auto-fill / Manual">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="cable-status">Cable & Earthing Status:</label>
+            <select id="cable-status" class="form-control">
+              <option value="">Select Status</option>
+              <option value="good">Good</option>
+              <option value="needs-fixing">Needs Fixing</option>
+              <option value="replaced">Replaced</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="before-maintenance">Upload Before Maintenance Image:</label>
+            <input type="file" id="before-maintenance" class="form-control">
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="cable-status">Cable & Earthing Status:</label>
-        <select id="cable-status">
-          <option value="">Select Status</option>
-          <option value="good">Good</option>
-          <option value="needs-fixing">Needs Fixing</option>
-          <option value="replaced">Replaced</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="before-maintenance">Upload Before Maintenance Image:</label>
-        <input type="file" id="before-maintenance">
-      </div>
-      <div class="form-group">
-        <label for="after-maintenance">Upload After Maintenance Image:</label>
-        <input type="file" id="after-maintenance">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="after-maintenance">Upload After Maintenance Image:</label>
+            <input type="file" id="after-maintenance" class="form-control">
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Work Timings & FE Tracking Section -->
     <div class="section">
       <h2>Work Timings & FE Tracking</h2>
-      <div class="form-group">
-        <label for="date">Date:</label>
-        <input type="date" id="date" disabled>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" id="date" class="form-control" disabled>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="arrival-time">Arrival Time:</label>
+            <input type="time" id="arrival-time" class="form-control" disabled>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="exit-time">Exit Time:</label>
+            <input type="time" id="exit-time" class="form-control" disabled>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="arrival-time">Arrival Time:</label>
-        <input type="time" id="arrival-time" disabled>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="gps-location">GPS Location:</label>
+            <input type="text" id="gps-location" class="form-control" disabled>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-engineer">Assigned Field Engineer:</label>
+            <input type="text" id="field-engineer" class="form-control" placeholder="Auto-assigned">
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="exit-time">Exit Time:</label>
-        <input type="time" id="exit-time" disabled>
-      </div>
-      <div class="form-group">
-        <label for="gps-location">GPS Location:</label>
-        <input type="text" id="gps-location" disabled>
-      </div>
-      <div class="form-group">
-        <label for="field-engineer">Assigned Field Engineer:</label>
-        <input type="text" id="field-engineer" placeholder="Auto-assigned">
-      </div>
-      <div class="form-group">
-        <label for="supervisor-approval">Supervisor Approval:</label>
-        <select id="supervisor-approval">
-          <option value="pending">Pending</option>
-          <option value="approved">Approved</option>
-          <option value="rejected">Rejected</option>
-        </select>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="supervisor-approval">Supervisor Approval:</label>
+            <select id="supervisor-approval" class="form-control">
+              <option value="pending">Pending</option>
+              <option value="approved">Approved</option>
+              <option value="rejected">Rejected</option>
+            </select>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Maintenance Checklist Section -->
     <div class="section">
       <h2>Maintenance Checklist</h2>
-      <div class="form-group">
-        <label for="antenna-alignment">Antenna Alignment Check:</label>
-        <select id="antenna-alignment">
-          <option value="">Select Status</option>
-          <option value="ok">OK</option>
-          <option value="needs-adjustment">Needs Adjustment</option>
-          <option value="adjusted">Adjusted</option>
-        </select>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="antenna-alignment">Antenna Alignment Check:</label>
+            <select id="antenna-alignment" class="form-control">
+              <option value="">Select Status</option>
+              <option value="ok">OK</option>
+              <option value="needs-adjustment">Needs Adjustment</option>
+              <option value="adjusted">Adjusted</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="cable-health">Cable & Connector Health Check:</label>
+            <select id="cable-health" class="form-control">
+              <option value="">Select Status</option>
+              <option value="ok">OK</option>
+              <option value="needs-replacement">Needs Replacement</option>
+              <option value="replaced">Replaced</option>
+            </select>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="cable-health">Cable & Connector Health Check:</label>
-        <select id="cable-health">
-          <option value="">Select Status</option>
-          <option value="ok">OK</option>
-          <option value="needs-replacement">Needs Replacement</option>
-          <option value="replaced">Replaced</option>
-        </select>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="power-source">Power Source & Backup Check:</label>
+            <select id="power-source" class="form-control">
+              <option value="">Select Status</option>
+              <option value="ok">OK</option>
+              <option value="needs-fixing">Needs Fixing</option>
+              <option value="fixed">Fixed</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="earthing-resistance">Earthing Resistance Measurement (Ohms):</label>
+            <input type="number" id="earthing-resistance" class="form-control" placeholder="Enter resistance">
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="power-source">Power Source & Backup Check:</label>
-        <select id="power-source">
-          <option value="">Select Status</option>
-          <option value="ok">OK</option>
-          <option value="needs-fixing">Needs Fixing</option>
-          <option value="fixed">Fixed</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="earthing-resistance">Earthing Resistance Measurement (Ohms):</label>
-        <input type="number" id="earthing-resistance" placeholder="Enter resistance">
-      </div>
-      <div class="form-group">
-        <label for="radio-health">Radio & Router Health Check:</label>
-        <select id="radio-health">
-          <option value="">Select Status</option>
-          <option value="ok">OK</option>
-          <option value="needs-update">Needs Update</option>
-          <option value="updated">Updated</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="network-config-screenshot">Upload Updated Network Configuration Screenshot:</label>
-        <input type="file" id="network-config-screenshot">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="radio-health">Radio & Router Health Check:</label>
+            <select id="radio-health" class="form-control">
+              <option value="">Select Status</option>
+              <option value="ok">OK</option>
+              <option value="needs-update">Needs Update</option>
+              <option value="updated">Updated</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="network-config-screenshot">Upload Updated Network Configuration Screenshot:</label>
+            <input type="file" id="network-config-screenshot" class="form-control">
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Performance Metrics & Testing Section -->
     <div class="section">
       <h2>Performance Metrics & Testing</h2>
-      <div class="form-group">
-        <label for="airlink-capacity">Airlink Capacity (Mbps):</label>
-        <input type="number" id="airlink-capacity" placeholder="Enter capacity">
-      </div>
-      <div class="form-group">
-        <label for="airlink-quality">Airlink Quality:</label>
-        <select id="airlink-quality">
-          <option value="">Select Quality</option>
-          <option value="excellent">Excellent</option>
-          <option value="good">Good</option>
-          <option value="fair">Fair</option>
-          <option value="poor">Poor</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="speed-tests">Speed Tests (Mbps):</label>
-        <div class="sub-group">
-          <input type="number" id="upload-speed" placeholder="Upload">
-          <input type="number" id="download-speed" placeholder="Download">
-          <input type="number" id="ping" placeholder="Ping">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="airlink-capacity">Airlink Capacity (Mbps):</label>
+            <input type="number" id="airlink-capacity" class="form-control" placeholder="Enter capacity">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="airlink-quality">Airlink Quality:</label>
+            <select id="airlink-quality" class="form-control">
+              <option value="">Select Quality</option>
+              <option value="excellent">Excellent</option>
+              <option value="good">Good</option>
+              <option value="fair">Fair</option>
+              <option value="poor">Poor</option>
+            </select>
+          </div>
         </div>
       </div>
-      <div class="form-group">
-        <label for="operating-frequency">Operating Frequency:</label>
-        <input type="text" id="operating-frequency" placeholder="Manual entry">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="upload-speed">Upload Speed (Mbps):</label>
+            <input type="number" id="upload-speed" class="form-control" placeholder="Upload">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="download-speed">Download Speed (Mbps):</label>
+            <input type="number" id="download-speed" class="form-control" placeholder="Download">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="ping">Ping (ms):</label>
+            <input type="number" id="ping" class="form-control" placeholder="Ping">
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="rssi">RSSI/Optical Levels (dBm):</label>
-        <input type="number" id="rssi" placeholder="Enter RSSI">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="operating-frequency">Operating Frequency:</label>
+            <input type="text" id="operating-frequency" class="form-control" placeholder="Manual entry">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="rssi">RSSI/Optical Levels (dBm):</label>
+            <input type="number" id="rssi" class="form-control" placeholder="Enter RSSI">
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="snr">SNR (dB):</label>
-        <input type="number" id="snr" placeholder="Enter SNR">
-      </div>
-      <div class="form-group">
-        <label for="speed-test-screenshot">Upload Speed Test Screenshot:</label>
-        <input type="file" id="speed-test-screenshot">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="snr">SNR (dB):</label>
+            <input type="number" id="snr" class="form-control" placeholder="Enter SNR">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="speed-test-screenshot">Upload Speed Test Screenshot:</label>
+            <input type="file" id="speed-test-screenshot" class="form-control">
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Customer Satisfaction & Approval Section -->
     <div class="section">
       <h2>Customer Satisfaction & Approval</h2>
-      <div class="form-group">
-        <label for="satisfaction-rating">Customer Satisfaction Rating:</label>
-        <select id="satisfaction-rating">
-          <option value="">Select Rating</option>
-          <option value="excellent">Excellent</option>
-          <option value="good">Good</option>
-          <option value="fair">Fair</option>
-          <option value="poor">Poor</option>
-        </select>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="satisfaction-rating">Customer Satisfaction Rating:</label>
+            <select id="satisfaction-rating" class="form-control">
+              <option value="">Select Rating</option>
+              <option value="excellent">Excellent</option>
+              <option value="good">Good</option>
+              <option value="fair">Fair</option>
+              <option value="poor">Poor</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="training-recharging">Was the customer trained on recharging?</label>
+            <select id="training-recharging" class="form-control">
+              <option value="">Select</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="customer-remarks">Customer Remarks:</label>
-        <textarea id="customer-remarks" rows="4" placeholder="Enter remarks"></textarea>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="customer-remarks">Customer Remarks:</label>
+            <textarea id="customer-remarks" class="form-control" rows="4" placeholder="Enter remarks"></textarea>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="fe-remarks">Field Engineer Remarks:</label>
+            <textarea id="fe-remarks" class="form-control" rows="4" placeholder="Enter remarks"></textarea>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="fe-remarks">Field Engineer Remarks:</label>
-        <textarea id="fe-remarks" rows="4" placeholder="Enter remarks"></textarea>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="support-contacts">Were support contact details shared?</label>
+            <select id="support-contacts" class="form-control">
+              <option value="">Select</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="training-recharging">Was the customer trained on recharging?</label>
-        <select id="training-recharging">
-          <option value="">Select</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="customer-signature">Customer Signature:</label>
+            <canvas id="customer-signature" class="signature-canvas"></canvas>
+            <button onclick="clearSignature('customer-signature')" class="btn btn-secondary mt-2">Clear</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="fe-signature">Field Engineer Signature:</label>
+            <canvas id="fe-signature" class="signature-canvas"></canvas>
+            <button onclick="clearSignature('fe-signature')" class="btn btn-secondary mt-2">Clear</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="supervisor-signature">Supervisor Signature:</label>
+            <canvas id="supervisor-signature" class="signature-canvas"></canvas>
+            <button onclick="clearSignature('supervisor-signature')" class="btn btn-secondary mt-2">Clear</button>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="support-contacts">Were support contact details shared?</label>
-        <select id="support-contacts">
-          <option value="">Select</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="customer-signature">Customer Signature:</label>
-        <canvas id="customer-signature" class="signature-canvas" width="300" height="150"></canvas>
-        <button onclick="clearSignature('customer-signature')">Clear</button>
-      </div>
-      <div class="form-group">
-        <label for="fe-signature">Field Engineer Signature:</label>
-        <canvas id="fe-signature" class="signature-canvas" width="300" height="150"></canvas>
-        <button onclick="clearSignature('fe-signature')">Clear</button>
-      </div>
-      <div class="form-group">
-        <label for="supervisor-signature">Supervisor Signature:</label>
-        <canvas id="supervisor-signature" class="signature-canvas" width="300" height="150"></canvas>
-        <button onclick="clearSignature('supervisor-signature')">Clear</button>
-      </div>
-      <div class="form-group">
-        <label for="signed-selfie">Upload Signed Customer Selfie:</label>
-        <input type="file" id="signed-selfie">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="signed-selfie">Upload Signed Customer Selfie:</label>
+            <input type="file" id="signed-selfie" class="form-control">
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Materials Used Section -->
     <div class="section">
       <h2>Materials Used</h2>
-      <div class="form-group">
-        <label for="mounting-pole">Mounting Pole:</label>
-        <select id="mounting-pole">
-          <option value="">Select</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-        <input type="number" id="mounting-pole-quantity" placeholder="Quantity" min="0">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="mounting-pole">Mounting Pole:</label>
+            <select id="mounting-pole" class="form-control">
+              <option value="">Select</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+            <input type="number" id="mounting-pole-quantity" class="form-control mt-2" placeholder="Quantity" min="0">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="wall-plugs">Wall Plugs & Screws / Concrete Nails:</label>
+            <input type="number" id="wall-plugs" class="form-control" placeholder="Quantity" min="0">
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="wall-plugs">Wall Plugs & Screws / Concrete Nails:</label>
-        <input type="number" id="wall-plugs" placeholder="Quantity" min="0">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="cat6-cable">CAT6 Cable (Meters Used):</label>
+            <input type="number" id="cat6-cable" class="form-control" placeholder="Enter meters" min="0">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="cable-clips">Cable Clips:</label>
+            <input type="number" id="cable-clips" class="form-control" placeholder="Quantity" min="0">
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="cat6-cable">CAT6 Cable (Meters Used):</label>
-        <input type="number" id="cat6-cable" placeholder="Enter meters" min="0">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="rj45-connectors">RJ45 Connectors:</label>
+            <input type="number" id="rj45-connectors" class="form-control" placeholder="Quantity" min="0">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="cable-ties">Cable Ties:</label>
+            <input type="number" id="cable-ties" class="form-control" placeholder="Quantity" min="0">
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="cable-clips">Cable Clips:</label>
-        <input type="number" id="cable-clips" placeholder="Quantity" min="0">
-      </div>
-      <div class="form-group">
-        <label for="rj45-connectors">RJ45 Connectors:</label>
-        <input type="number" id="rj45-connectors" placeholder="Quantity" min="0">
-      </div>
-      <div class="form-group">
-        <label for="cable-ties">Cable Ties:</label>
-        <input type="number" id="cable-ties" placeholder="Quantity" min="0">
-      </div>
-      <div class="form-group">
-        <label for="additional-notes">Additional Notes on Material Usage:</label>
-        <textarea id="additional-notes" rows="4" placeholder="Enter notes"></textarea>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="additional-notes">Additional Notes on Material Usage:</label>
+            <textarea id="additional-notes" class="form-control" rows="4" placeholder="Enter notes"></textarea>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Final Report Section -->
     <div class="section">
       <h2>Final Report</h2>
-      <div class="form-group">
-        <label for="job-status">Job Status:</label>
-        <select id="job-status">
-          <option value="">Select Status</option>
-          <option value="completed">Completed</option>
-          <option value="partially-completed">Partially Completed</option>
-          <option value="pending-issue">Pending Issue</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="supervisor-comments">Supervisor Comments:</label>
-        <textarea id="supervisor-comments" rows="4" placeholder="Enter comments"></textarea>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="job-status">Job Status:</label>
+            <select id="job-status" class="form-control">
+              <option value="">Select Status</option>
+              <option value="completed">Completed</option>
+              <option value="partially-completed">Partially Completed</option>
+              <option value="pending-issue">Pending Issue</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="supervisor-comments">Supervisor Comments:</label>
+            <textarea id="supervisor-comments" class="form-control" rows="4" placeholder="Enter comments"></textarea>
+          </div>
+        </div>
       </div>
     </div>
 
