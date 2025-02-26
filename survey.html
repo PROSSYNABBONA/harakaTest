@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Survey & Upgrades</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      padding: 20px;
+    }
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .section h2 {
+      color: #007bff;
+      margin-bottom: 15px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .form-group textarea {
+      resize: vertical;
+    }
+    .form-group .upload-btn {
+      margin-top: 10px;
+    }
+    .btn-primary {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Site Survey & Upgrades</h1>
+
+    <!-- Survey Information Section -->
+    <div class="section">
+      <h2>Survey Information</h2>
+      <div class="form-group">
+        <label for="customer-site-location">Customer/Site Location:</label>
+        <input type="text" id="customer-site-location" placeholder="Enter location">
+      </div>
+      <div class="form-group">
+        <label for="existing-equipment">Existing Equipment & Condition:</label>
+        <select id="existing-equipment">
+          <option value="">Select Condition</option>
+          <option value="good">Good</option>
+          <option value="needs-upgrade">Needs Upgrade</option>
+          <option value="non-functional">Non-Functional</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="current-site-setup">Upload Current Site Setup:</label>
+        <input type="file" id="current-site-setup">
+      </div>
+      <div class="form-group">
+        <label for="signal-strength">Signal Strength Test:</label>
+        <input type="text" id="signal-strength" placeholder="Auto-detect / Manual entry">
+      </div>
+      <div class="form-group">
+        <label for="recommended-upgrade">Recommended Upgrade:</label>
+        <select id="recommended-upgrade">
+          <option value="">Select Upgrade</option>
+          <option value="5g-odu">5G ODU</option>
+          <option value="cambium-microwave">Cambium Microwave</option>
+          <option value="fiber">Fiber</option>
+          <option value="apn-odu">APN ODU</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="site-suitability-report">Upload Site Suitability Report Screenshot:</label>
+        <input type="file" id="site-suitability-report">
+      </div>
+    </div>
+
+    <!-- Network & Environmental Conditions Section -->
+    <div class="section">
+      <h2>Network & Environmental Conditions</h2>
+      <div class="form-group">
+        <label for="line-of-sight">Line of Sight Check:</label>
+        <select id="line-of-sight">
+          <option value="">Select Status</option>
+          <option value="clear">Clear</option>
+          <option value="partial-obstruction">Partial Obstruction</option>
+          <option value="full-obstruction">Full Obstruction</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="power-availability">Power Availability:</label>
+        <select id="power-availability">
+          <option value="">Select Status</option>
+          <option value="stable">Stable</option>
+          <option value="frequent-outages">Frequent Outages</option>
+          <option value="no-power">No Power</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cable-routing">Cable Routing Feasibility:</label>
+        <select id="cable-routing">
+          <option value="">Select Feasibility</option>
+          <option value="easy">Easy</option>
+          <option value="moderate">Moderate</option>
+          <option value="difficult">Difficult</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Survey Report for Management Section -->
+    <div class="section">
+      <h2>Survey Report for Management</h2>
+      <div class="form-group">
+        <label for="upgrade-recommendation">Upgrade Recommendation:</label>
+        <select id="upgrade-recommendation">
+          <option value="">Select Recommendation</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="material-labor-cost">Estimated Material & Labor Cost:</label>
+        <input type="number" id="material-labor-cost" placeholder="Enter cost">
+      </div>
+      <div class="form-group">
+        <label for="project-approval">Project Approval Status:</label>
+        <select id="project-approval">
+          <option value="">Select Status</option>
+          <option value="pending">Pending</option>
+          <option value="approved">Approved</option>
+          <option value="rejected">Rejected</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="supervisor-comments">Supervisor Comments:</label>
+        <textarea id="supervisor-comments" rows="4" placeholder="Enter comments"></textarea>
+      </div>
+    </div>
+
+    <!-- Final Report Section -->
+    <div class="section">
+      <h2>Final Report</h2>
+      <div class="form-group">
+        <label for="final-report">Upload Final Report:</label>
+        <input type="file" id="final-report">
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button id="submit-btn" class="btn btn-primary">Submit</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Handle form submission
+    document.getElementById("submit-btn").addEventListener("click", function () {
+      alert("Form submitted successfully!");
+    });
+
+    // Auto-detect signal strength (mock implementation)
+    const signalStrengthInput = document.getElementById("signal-strength");
+    function autoDetectSignalStrength() {
+      const signalStrength = Math.floor(Math.random() * 100); // Mock signal strength
+      signalStrengthInput.value = `${signalStrength} dBm`;
+    }
+    autoDetectSignalStrength(); // Initial call
+  </script>
+</body>
+</html>

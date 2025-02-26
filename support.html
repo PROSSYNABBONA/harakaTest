@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support & Fault Resolution</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      padding: 20px;
+    }
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .section h2 {
+      color: #007bff;
+      margin-bottom: 15px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .form-group textarea {
+      resize: vertical;
+    }
+    .form-group .upload-btn {
+      margin-top: 10px;
+    }
+    .btn-primary {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+    }
+    .signature-canvas {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #f9f9f9;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Support & Fault Resolution</h1>
+
+    <!-- Customer Information Section -->
+    <div class="section">
+      <h2>Customer Information</h2>
+      <div class="form-group">
+        <label for="customer-name">Customer Name:</label>
+        <select id="customer-name">
+          <option value="">Select Customer</option>
+          <option value="customer1">Customer 1</option>
+          <option value="customer2">Customer 2</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="customer-contact">Customer Contact:</label>
+        <input type="text" id="customer-contact" placeholder="Enter contact">
+      </div>
+      <div class="form-group">
+        <label for="customer-location">Customer Location:</label>
+        <input type="text" id="customer-location" placeholder="Auto-captured" disabled>
+      </div>
+      <div class="form-group">
+        <label for="site-id">Site ID:</label>
+        <input type="text" id="site-id" placeholder="Auto-fetch from database">
+      </div>
+      <div class="form-group">
+        <label for="mocn">MOCN:</label>
+        <select id="mocn">
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Issue Details & Troubleshooting Steps Section -->
+    <div class="section">
+      <h2>Issue Details & Troubleshooting Steps</h2>
+      <div class="form-group">
+        <label for="reported-issue">Reported Issue:</label>
+        <select id="reported-issue">
+          <option value="">Select Issue</option>
+          <option value="no-connectivity">No Connectivity</option>
+          <option value="slow-speeds">Slow Speeds</option>
+          <option value="frequent-disconnections">Frequent Disconnections</option>
+          <option value="hardware-failure">Hardware Failure</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="error-screenshot">Upload Screenshot of Error:</label>
+        <input type="file" id="error-screenshot">
+      </div>
+      <div class="form-group">
+        <label for="troubleshooting-steps">Troubleshooting Steps Taken:</label>
+        <select id="troubleshooting-steps">
+          <option value="">Select Steps</option>
+          <option value="rebooted-device">Rebooted Device</option>
+          <option value="replaced-cable">Replaced Cable</option>
+          <option value="reset-configuration">Reset Configuration</option>
+          <option value="firmware-update">Firmware Update</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="resolution-proof">Upload Resolution Proof:</label>
+        <input type="file" id="resolution-proof">
+      </div>
+    </div>
+
+    <!-- Resolution Metrics Section -->
+    <div class="section">
+      <h2>Resolution Metrics</h2>
+      <div class="form-group">
+        <label for="time-taken">Time Taken to Resolve:</label>
+        <input type="text" id="time-taken" placeholder="Auto-calculated" disabled>
+      </div>
+      <div class="form-group">
+        <label for="resolution-status">Issue Resolution Status:</label>
+        <select id="resolution-status">
+          <option value="">Select Status</option>
+          <option value="fixed">Fixed</option>
+          <option value="escalated-to-noc">Escalated to NOC</option>
+          <option value="pending-further-action">Pending Further Action</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="escalation-required">Escalation Required?</label>
+        <select id="escalation-required">
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="escalation-notes">Escalation Notes:</label>
+        <textarea id="escalation-notes" rows="4" placeholder="Enter notes"></textarea>
+      </div>
+    </div>
+
+    <!-- Customer Satisfaction & Approval Section -->
+    <div class="section">
+      <h2>Customer Satisfaction & Approval</h2>
+      <div class="form-group">
+        <label for="satisfaction-rating">Customer Satisfaction Rating:</label>
+        <select id="satisfaction-rating">
+          <option value="">Select Rating</option>
+          <option value="excellent">Excellent</option>
+          <option value="good">Good</option>
+          <option value="fair">Fair</option>
+          <option value="poor">Poor</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="customer-remarks">Customer Remarks:</label>
+        <textarea id="customer-remarks" rows="4" placeholder="Enter remarks"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="fe-remarks">Field Engineer Remarks:</label>
+        <textarea id="fe-remarks" rows="4" placeholder="Enter remarks"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="training-recharging">Was the customer trained on recharging?</label>
+        <select id="training-recharging">
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="support-contacts">Were support contact details shared?</label>
+        <select id="support-contacts">
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="customer-signature">Customer Signature:</label>
+        <canvas id="customer-signature" class="signature-canvas" width="300" height="150"></canvas>
+        <button onclick="clearSignature('customer-signature')">Clear</button>
+      </div>
+      <div class="form-group">
+        <label for="fe-signature">Field Engineer Signature:</label>
+        <canvas id="fe-signature" class="signature-canvas" width="300" height="150"></canvas>
+        <button onclick="clearSignature('fe-signature')">Clear</button>
+      </div>
+      <div class="form-group">
+        <label for="supervisor-signature">Supervisor Signature:</label>
+        <canvas id="supervisor-signature" class="signature-canvas" width="300" height="150"></canvas>
+        <button onclick="clearSignature('supervisor-signature')">Clear</button>
+      </div>
+      <div class="form-group">
+        <label for="signed-selfie">Upload Signed Customer Selfie:</label>
+        <input type="file" id="signed-selfie">
+      </div>
+    </div>
+
+    <!-- Materials Used Section -->
+    <div class="section">
+      <h2>Materials Used</h2>
+      <div class="form-group">
+        <label for="mounting-pole">Mounting Pole:</label>
+        <select id="mounting-pole">
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+        <input type="number" id="mounting-pole-quantity" placeholder="Quantity" min="0">
+      </div>
+      <div class="form-group">
+        <label for="wall-plugs">Wall Plugs & Screws / Concrete Nails:</label>
+        <input type="number" id="wall-plugs" placeholder="Quantity" min="0">
+      </div>
+      <div class="form-group">
+        <label for="cat6-cable">CAT6 Cable (Meters Used):</label>
+        <input type="number" id="cat6-cable" placeholder="Enter meters" min="0">
+      </div>
+      <div class="form-group">
+        <label for="cable-clips">Cable Clips:</label>
+        <input type="number" id="cable-clips" placeholder="Quantity" min="0">
+      </div>
+      <div class="form-group">
+        <label for="rj45-connectors">RJ45 Connectors:</label>
+        <input type="number" id="rj45-connectors" placeholder="Quantity" min="0">
+      </div>
+      <div class="form-group">
+        <label for="cable-ties">Cable Ties:</label>
+        <input type="number" id="cable-ties" placeholder="Quantity" min="0">
+      </div>
+      <div class="form-group">
+        <label for="additional-notes">Additional Notes on Material Usage:</label>
+        <textarea id="additional-notes" rows="4" placeholder="Enter notes"></textarea>
+      </div>
+    </div>
+
+    <!-- Final Report Section -->
+    <div class="section">
+      <h2>Final Report</h2>
+      <div class="form-group">
+        <label for="job-status">Job Status:</label>
+        <select id="job-status">
+          <option value="">Select Status</option>
+          <option value="completed">Completed</option>
+          <option value="partially-completed">Partially Completed</option>
+          <option value="pending-issue">Pending Issue</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="supervisor-comments">Supervisor Comments:</label>
+        <textarea id="supervisor-comments" rows="4" placeholder="Enter comments"></textarea>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button id="submit-btn" class="btn btn-primary">Submit</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Function to clear signature canvas
+    function clearSignature(canvasId) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // Handle form submission
+    document.getElementById("submit-btn").addEventListener("click", function () {
+      alert("Form submitted successfully!");
+    });
+
+    // Auto-calculate time taken to resolve
+    const startTime = new Date();
+    const timeTakenInput = document.getElementById("time-taken");
+
+    function updateTimeTaken() {
+      const now = new Date();
+      const timeDiff = now - startTime; // Time difference in milliseconds
+      const hours = Math.floor(timeDiff / 3600000); // Convert to hours
+      const minutes = Math.floor((timeDiff % 3600000) / 60000); // Convert to minutes
+      timeTakenInput.value = `${hours}h ${minutes}m`;
+    }
+
+    // Update time taken every minute
+    setInterval(updateTimeTaken, 60000);
+    updateTimeTaken(); // Initial call
+  </script>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preventive Maintenance (PM)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      padding: 20px;
+    }
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .section h2 {
+      color: #007bff;
+      margin-bottom: 15px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .form-group textarea {
+      resize: vertical;
+    }
+    .form-group .upload-btn {
+      margin-top: 10px;
+    }
+    .btn-primary {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+    }
+    .signature-canvas {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #f9f9f9;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Preventive Maintenance (PM)</h1>
+
+    <!-- Customer Information Section -->
+    <div class="section">
+      <h2>Customer Information</h2>
+      <div class="form-group">
+        <label for="customer-name">Customer Name:</label>
+        <select id="customer-name">
+          <option value="">Select Customer</option>
+          <option value="customer1">Customer 1</option>
+          <option value="customer2">Customer 2</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="customer-contact">Customer Contact:</label>
+        <input type="text" id="customer-contact" placeholder="Enter contact">
+      </div>
+      <div class="form-group">
+        <label for="customer-location">Customer Location:</label>
+        <input type="text" id="customer-location" placeholder="Auto-captured" disabled>
+      </div>
+      <div class="form-group">
+        <label for="site-id">Site ID:</label>
+        <input type="text" id="site-id" placeholder="Auto-fetch from database">
+      </div>
+      <div class="form-group">
+        <label for="mocn">MOCN:</label>
+        <select id="mocn">
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Site & Equipment Details Section -->
+    <div class="section">
+      <h2>Site & Equipment Details</h2>
+      <div class="form-group">
+        <label for="equipment-type">Current Equipment Type:</label>
+        <select id="equipment-type">
+          <option value="">Select Type</option>
+          <option value="apn-odu">APN ODU</option>
+          <option value="5g-odu">5G ODU</option>
+          <option value="cambium">Cambium Microwave</option>
+          <option value="fiber">Fiber</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="serial-number">Serial Number:</label>
+        <input type="text" id="serial-number" placeholder="Auto-fill / Manual">
+      </div>
+      <div class="form-group">
+        <label for="cable-status">Cable & Earthing Status:</label>
+        <select id="cable-status">
+          <option value="">Select Status</option>
+          <option value="good">Good</option>
+          <option value="needs-fixing">Needs Fixing</option>
+          <option value="replaced">Replaced</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="before-maintenance">Upload Before Maintenance Image:</label>
+        <input type="file" id="before-maintenance">
+      </div>
+      <div class="form-group">
+        <label for="after-maintenance">Upload After Maintenance Image:</label>
+        <input type="file" id="after-maintenance">
+      </div>
+    </div>
+
+    <!-- Work Timings & FE Tracking Section -->
+    <div class="section">
+      <h2>Work Timings & FE Tracking</h2>
+      <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" id="date" disabled>
+      </div>
+      <div class="form-group">
+        <label for="arrival-time">Arrival Time:</label>
+        <input type="time" id="arrival-time" disabled>
+      </div>
+      <div class="form-group">
+        <label for="exit-time">Exit Time:</label>
+        <input type="time" id="exit-time" disabled>
+      </div>
+      <div class="form-group">
+        <label for="gps-location">GPS Location:</label>
+        <input type="text" id="gps-location" disabled>
+      </div>
+      <div class="form-group">
+        <label for="field-engineer">Assigned Field Engineer:</label>
+        <input type="text" id="field-engineer" placeholder="Auto-assigned">
+      </div>
+      <div class="form-group">
+        <label for="supervisor-approval">Supervisor Approval:</label>
+        <select id="supervisor-approval">
+          <option value="pending">Pending</option>
+          <option value="approved">Approved</option>
+          <option value="rejected">Rejected</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Maintenance Checklist Section -->
+    <div class="section">
+      <h2>Maintenance Checklist</h2>
+      <div class="form-group">
+        <label for="antenna-alignment">Antenna Alignment Check:</label>
+        <select id="antenna-alignment">
+          <option value="">Select Status</option>
+          <option value="ok">OK</option>
+          <option value="needs-adjustment">Needs Adjustment</option>
+          <option value="adjusted">Adjusted</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cable-health">Cable & Connector Health Check:</label>
+        <select id="cable-health">
+          <option value="">Select Status</option>
+          <option value="ok">OK</option>
+          <option value="needs-replacement">Needs Replacement</option>
+          <option value="replaced">Replaced</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="power-source">Power Source & Backup Check:</label>
+        <select id="power-source">
+          <option value="">Select Status</option>
+          <option value="ok">OK</option>
+          <option value="needs-fixing">Needs Fixing</option>
+          <option value="fixed">Fixed</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="earthing-resistance">Earthing Resistance Measurement (Ohms):</label>
+        <input type="number" id="earthing-resistance" placeholder="Enter resistance">
+      </div>
+      <div class="form-group">
+        <label for="radio-health">Radio & Router Health Check:</label>
+        <select id="radio-health">
+          <option value="">Select Status</option>
+          <option value="ok">OK</option>
+          <option value="needs-update">Needs Update</option>
+          <option value="updated">Updated</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="network-config-screenshot">Upload Updated Network Configuration Screenshot:</label>
+        <input type="file" id="network-config-screenshot">
+      </div>
+    </div>
+
+    <!-- Performance Metrics & Testing Section -->
+    <div class="section">
+      <h2>Performance Metrics & Testing</h2>
+      <div class="form-group">
+        <label for="airlink-capacity">Airlink Capacity (Mbps):</label>
+        <input type="number" id="airlink-capacity" placeholder="Enter capacity">
+      </div>
+      <div class="form-group">
+        <label for="airlink-quality">Airlink Quality:</label>
+        <select id="airlink-quality">
+          <option value="">Select Quality</option>
+          <option value="excellent">Excellent</option>
+          <option value="good">Good</option>
+          <option value="fair">Fair</option>
+          <option value="poor">Poor</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="speed-tests">Speed Tests (Mbps):</label>
+        <div class="sub-group">
+          <input type="number" id="upload-speed" placeholder="Upload">
+          <input type="number" id="download-speed" placeholder="Download">
+          <input type="number" id="ping" placeholder="Ping">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="operating-frequency">Operating Frequency:</label>
+        <input type="text" id="operating-frequency" placeholder="Manual entry">
+      </div>
+      <div class="form-group">
+        <label for="rssi">RSSI/Optical Levels (dBm):</label>
+        <input type="number" id="rssi" placeholder="Enter RSSI">
+      </div>
+      <div class="form-group">
+        <label for="snr">SNR (dB):</label>
+        <input type="number" id="snr" placeholder="Enter SNR">
+      </div>
+      <div class="form-group">
+        <label for="speed-test-screenshot">Upload Speed Test Screenshot:</label>
+        <input type="file" id="speed-test-screenshot">
+      </div>
+    </div>
+
+    <!-- Customer Satisfaction & Approval Section -->
+    <div class="section">
+      <h2>Customer Satisfaction & Approval</h2>
+      <div class="form-group">
+        <label for="satisfaction-rating">Customer Satisfaction Rating:</label>
+        <select id="satisfaction-rating">
+          <option value="">Select Rating</option>
+          <option value="excellent">Excellent</option>
+          <option value="good">Good</option>
+          <option value="fair">Fair</option>
+          <option value="poor">Poor</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="customer-remarks">Customer Remarks:</label>
+        <textarea id="customer-remarks" rows="4" placeholder="Enter remarks"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="fe-remarks">Field Engineer Remarks:</label>
+        <textarea id="fe-remarks" rows="4" placeholder="Enter remarks"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="training-recharging">Was the customer trained on recharging?</label>
+        <select id="training-recharging">
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="support-contacts">Were support contact details shared?</label>
+        <select id="support-contacts">
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="customer-signature">Customer Signature:</label>
+        <canvas id="customer-signature" class="signature-canvas" width="300" height="150"></canvas>
+        <button onclick="clearSignature('customer-signature')">Clear</button>
+      </div>
+      <div class="form-group">
+        <label for="fe-signature">Field Engineer Signature:</label>
+        <canvas id="fe-signature" class="signature-canvas" width="300" height="150"></canvas>
+        <button onclick="clearSignature('fe-signature')">Clear</button>
+      </div>
+      <div class="form-group">
+        <label for="supervisor-signature">Supervisor Signature:</label>
+        <canvas id="supervisor-signature" class="signature-canvas" width="300" height="150"></canvas>
+        <button onclick="clearSignature('supervisor-signature')">Clear</button>
+      </div>
+      <div class="form-group">
+        <label for="signed-selfie">Upload Signed Customer Selfie:</label>
+        <input type="file" id="signed-selfie">
+      </div>
+    </div>
+
+    <!-- Materials Used Section -->
+    <div class="section">
+      <h2>Materials Used</h2>
+      <div class="form-group">
+        <label for="mounting-pole">Mounting Pole:</label>
+        <select id="mounting-pole">
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+        <input type="number" id="mounting-pole-quantity" placeholder="Quantity" min="0">
+      </div>
+      <div class="form-group">
+        <label for="wall-plugs">Wall Plugs & Screws / Concrete Nails:</label>
+        <input type="number" id="wall-plugs" placeholder="Quantity" min="0">
+      </div>
+      <div class="form-group">
+        <label for="cat6-cable">CAT6 Cable (Meters Used):</label>
+        <input type="number" id="cat6-cable" placeholder="Enter meters" min="0">
+      </div>
+      <div class="form-group">
+        <label for="cable-clips">Cable Clips:</label>
+        <input type="number" id="cable-clips" placeholder="Quantity" min="0">
+      </div>
+      <div class="form-group">
+        <label for="rj45-connectors">RJ45 Connectors:</label>
+        <input type="number" id="rj45-connectors" placeholder="Quantity" min="0">
+      </div>
+      <div class="form-group">
+        <label for="cable-ties">Cable Ties:</label>
+        <input type="number" id="cable-ties" placeholder="Quantity" min="0">
+      </div>
+      <div class="form-group">
+        <label for="additional-notes">Additional Notes on Material Usage:</label>
+        <textarea id="additional-notes" rows="4" placeholder="Enter notes"></textarea>
+      </div>
+    </div>
+
+    <!-- Final Report Section -->
+    <div class="section">
+      <h2>Final Report</h2>
+      <div class="form-group">
+        <label for="job-status">Job Status:</label>
+        <select id="job-status">
+          <option value="">Select Status</option>
+          <option value="completed">Completed</option>
+          <option value="partially-completed">Partially Completed</option>
+          <option value="pending-issue">Pending Issue</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="supervisor-comments">Supervisor Comments:</label>
+        <textarea id="supervisor-comments" rows="4" placeholder="Enter comments"></textarea>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button id="submit-btn" class="btn btn-primary">Submit</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Function to clear signature canvas
+    function clearSignature(canvasId) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // Handle form submission
+    document.getElementById("submit-btn").addEventListener("click", function () {
+      alert("Form submitted successfully!");
+    });
+
+    // Auto-fill date and time
+    const dateInput = document.getElementById("date");
+    const arrivalTimeInput = document.getElementById("arrival-time");
+    const exitTimeInput = document.getElementById("exit-time");
+
+    const now = new Date();
+    dateInput.value = now.toISOString().split("T")[0];
+    arrivalTimeInput.value = now.toTimeString().split(" ")[0];
+    exitTimeInput.value = now.toTimeString().split(" ")[0];
+
+    // Auto-capture GPS location
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const gpsLocationInput = document.getElementById("gps-location");
+        gpsLocationInput.value = `${position.coords.latitude}, ${position.coords.longitude}`;
+      });
+    }
+  </script>
+</body>
+</html>
